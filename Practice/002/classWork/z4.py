@@ -7,10 +7,19 @@
 # Напишите программу, помогающую синоптикам в работе.
 from random import randint
 
-days = int(input('Введите количество деней: '))
+days = 30
 
 today = 0
-
+warm_count = 0
+max_warm = 0
 for _ in range(days):
     print(today, end = ' ')
     today += randint(-3, 3)
+    
+    if today > 0:
+        warm_count += 1
+    if today <= 0:
+        if max_warm < warm_count:
+            max_warm = warm_count
+        warm_count = 0
+print(f'\n {max_warm}')

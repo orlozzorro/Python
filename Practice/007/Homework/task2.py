@@ -5,10 +5,12 @@
 # Примечание: бинарной операцией называется любая операция, у которой ровно два аргумента, как, например, у операции умножения.
 
 def print_operation_table(operation, num_rows=6, num_columns=6):
+    arr = list("")
     for i in range(1,num_rows+1):
         row = list()
         for j in range(1, num_columns+1):
             row.append(operation(i,j))
-        print(row)
+        arr.append(row)
+    print(*arr, sep = "\n")
 
 print(print_operation_table(lambda x, y: x*y))

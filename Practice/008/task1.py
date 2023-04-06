@@ -73,13 +73,15 @@ def change_cont():
         phone_book.append(new_contact)
         i +=1
     print(*phone_book, sep='\n')
-    elem = int(input('введите id, : '))
-    if elem < len(phone_book):
-        print(phone_book[elem])
-        corr = input('ключ, которые хотите поменять: ')
-        newStr = input('на что хотите поменять: ')
-        phone_book[elem][corr] = newStr
-    else: print("ошибка. Приходите попозже")
+    # elem = int(input('введите id, который хотите поменять: '))
+    elem = input('Кого хотите поменять: ')
+    for cont in phone_book:
+        if elem in cont.values():
+            print(cont)
+            corr = input('Ведите ключ, который хотите поменять: ')
+            newStr = input('на что хотите поменять: ')
+            phone_book[cont['id']][corr] = newStr 
+ 
     print(*phone_book, sep='\n')
     new_phone_book = ''
     i=0
